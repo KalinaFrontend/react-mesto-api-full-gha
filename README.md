@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес x.x.x.x1
 
 Frontend https://mesto-react-kalina.nomoredomains.monster
 
