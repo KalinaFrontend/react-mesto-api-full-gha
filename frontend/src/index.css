@@ -1,0 +1,74 @@
+@import url(./vendor/normalize.css);
+/* font */
+@import url(./vendor/fonts/fonts.css);
+/* body */
+@import url(./blocks/app/app.css);
+/* page */
+@import url(./blocks/page/page.css);
+/* header */
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/__exit/header__exit.css);
+@import url(./blocks/header/__menu/header__menu.css);
+@import url(./blocks/header/__menu-item/header__menu-item.css);
+@import url(./blocks/header/__menu-list/header__menu-list.css);
+@import url(./blocks/header/__menu-button/header__menu-button.css);
+@import url(./blocks/header/__menu-open/header__menu-open.css);
+@import url(./blocks/header/__nav-open/header__nav-open.css);
+/* logo */
+@import url(./blocks/logo/logo.css);
+/* profile */
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__card/profile__card.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__info-block/profile__info-block.css);
+@import url(./blocks/profile/__info-name/profile__info-name.css);
+@import url(./blocks/profile/__job/profile__job.css);
+@import url(./blocks/profile/__edit-button/profile__edit-button.css);
+@import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__avatar-edit-button/profile__avatar-edit-button.css);
+/* elements */
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/elements/__items/elements__items.css);
+@import url(./blocks/elements/__item/elements__item.css);
+@import url(./blocks/elements/__delete/elements__delete.css);
+@import url(./blocks/elements/__item-image/elements__item-image.css);
+@import url(./blocks/elements/__item-card/elements__item-card.css);
+@import url(./blocks/elements/__item-title/elements__item-title.css);
+@import url(./blocks/elements/__item-like/element__item-like.css);
+@import url(./blocks/elements/__item-like/_type/element__item-like_type_active.css);
+@import url(./blocks/elements/__item-number-likes/elements__item-number-likes.css);
+@import url(./blocks/elements/__item-likes/elemants__item-likes.css);
+/* footer */
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+/* popup */
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__content/popup__content.css);
+@import url(./blocks/popup/__content-title/popup__content-title.css);
+@import url(./blocks/popup/__form/popup__form.css);
+@import url(./blocks/popup/__input/popup__input.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__close-button/popup__close-button.css);
+@import url(./blocks/popup/__image-conteiner/popup__image-conteiner.css);
+@import url(./blocks/popup/__save-button/popup__save-button.css);
+@import url(./blocks/popup/__image-title/popup__image-title.css);
+@import url(./blocks/popup/__image/popup__image.css);
+@import url(./blocks/popup/_type/popup_type_image-view.css);
+@import url(./blocks/popup/__input-error/popup__input-error.css);
+@import url(./blocks/popup/__label/popup__label.css);
+@import url(./blocks/popup/__save-button/_inactive/popup__save-button_inactive.css);
+@import url(./blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(./blocks/popup/__input-error/_active/popup__input-error_active.css);
+@import url(./blocks/popup/__save-button/_place/popup__save-button_place_delete-card.css);
+@import url(./blocks/popup/_type/popup_type_info-tooltip.css);
+@import url(./blocks/popup/__info-tooltip-icon/popup__info-tooltip-icon.css);
+@import url(./blocks/popup/__info-tooltip-title/popup__info-tooltip-title.css);
+/* login */
+@import url(./blocks/login/login.css);
+@import url(./blocks/login/__title/login__title.css);
+@import url(./blocks/login/__input/login__input.css);
+@import url(./blocks/login/__save-button/login__save-button.css);
+@import url(./blocks/login/__auth-link/login__auth-link.css);
+@import url(./blocks/login/__form/login__form.css);

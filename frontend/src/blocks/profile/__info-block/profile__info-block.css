@@ -1,0 +1,14 @@
+.profile__info-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 19px;
+}
+
+@media screen and (max-width: 640px) {
+  .profile__info-block {
+    padding-left: 9px;
+    gap: 10px;
+  }
+}

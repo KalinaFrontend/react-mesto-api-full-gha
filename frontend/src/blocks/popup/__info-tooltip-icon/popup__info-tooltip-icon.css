@@ -1,0 +1,13 @@
+.popup__info-tooltip-icon {
+    margin: 60px 0 32px;
+    width: 120px;
+    height: 120px;
+}
+
+@media screen and (max-width: 640px) {
+    .popup__info-tooltip-icon { 
+    margin: 50px 0 40px;
+    width: 120px;
+    height: 120px;
+    }
+}
