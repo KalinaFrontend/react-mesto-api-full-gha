@@ -10,6 +10,6 @@
 
 IP-адрес x.x.x.x
 
-Frontend https://...
+Frontend https://mesto-react-kalina.nomoredomains.monster
 
-Backend https://...
+Backend https://api.mesto-react-kalina.nomoredomains.monster
