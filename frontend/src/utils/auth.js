@@ -1,3 +1,5 @@
+import { baseUrl } from "./constants";
+
 const checkResponse = (res) => {
     if (res.ok) {
       return res.json();
@@ -6,30 +8,44 @@ const checkResponse = (res) => {
     }
   }
 
-export const authorization = ({ email, password }) => {
-    return fetch(`https://auth.nomoreparties.co/signin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json" 
-    },
-      body: JSON.stringify({ password, email }),
-    }).then(checkResponse);
+  const handleResponse = async (data) => {
+    const res = await data.json()
+    if (data.ok) {
+        return res
+    } else {
+        return Promise.reject(res);
+    }
 }
 
-
-export const registration = ({ email, password }) => {
-  console.log({ email, password });
-  return fetch('https://auth.nomoreparties.co/signup', {
+export async function authorization ({ email, password }) {
+  const data = await fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json" 
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
   },
-    body: JSON.stringify({ password, email }),
-  }).then(checkResponse);
+    body: JSON.stringify( { email, password } ),
+  })
+  return handleResponse(data);
+}
+
+export async function registration({ email, password }) {
+  const data = await fetch(`${baseUrl}/signup`, {
+      method: "POST",
+      headers: {
+           Accept: 'application/json',
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          password,
+          email
+      })
+  })
+  return handleResponse(data);
 }
 
 export const getContent = (token) => {
-    return fetch(`https://auth.nomoreparties.co/users/me`, {
+    return fetch(`${baseUrl}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

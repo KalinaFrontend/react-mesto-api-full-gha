@@ -4,8 +4,9 @@ import AuthForm from "./AuthForm";
 
 function Login({ onLogin }) {
   const title = "Вход";
+  const buttonSubmit = "Войти";
   return (
-    <AuthForm title={title} onLogin={onLogin} />
+    <AuthForm title={title} button={buttonSubmit} onLogin={onLogin} />
   );
 }
 

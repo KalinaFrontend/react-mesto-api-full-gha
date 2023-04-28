@@ -13,41 +13,36 @@ const {
 
 const createUser = (req, res, next) => {
   const {
-    email,
-    password,
     name,
     about,
     avatar,
+    email,
+    password,
   } = req.body;
 
-  hash(password, 10)
-    .then((hashedPassword) => User.create({
-      email,
-      password: hashedPassword,
-      name,
-      about,
-      avatar,
-    }))
-    .then((user) => {
-      const { _id } = user;
-
-      return res.status(201).send({
-        email,
-        name,
-        about,
-        avatar,
-        _id,
-      });
-    })
-    .catch((err) => {
-      if (err.code === 11000) {
-        next(new ConflictError('Пользователь с таким электронным адресом уже зарегистрирован'));
-      } else if (err.name === 'ValidationError') {
-        next(new InaccurateDataError('Переданы некорректные данные при регистрации пользователя1'));
+  User.findOne({ email })
+    .then((mail) => {
+      if (mail) {
+        throw new ConflictError('Пользователь с таким электронным адресом уже зарегистрирован');
       } else {
-        next(err);
+        hash(password, 10)
+          .then((hashedPassword) => User.create({
+            name,
+            about,
+            avatar,
+            email,
+            password: hashedPassword,
+          }))
+          .then((user) => res.status(201).send(user))
+          .catch((err) => {
+            if (err.name === 'ValidationError') {
+              throw new InaccurateDataError('Переданы некорректные данные при регистрации пользователя');
+            }
+          })
+          .catch(next);
       }
-    });
+    })
+    .catch(next);
 };
 
 const login = (req, res, next) => {
@@ -62,7 +57,7 @@ const login = (req, res, next) => {
           { expiresIn: '7d' },
         );
 
-        return res.send({ _id: token });
+        return res.send({ token });
       }
 
       throw new UnauthorizedError('Неправильные почта или пароль');
@@ -149,8 +144,8 @@ const patchAvatar = (req, res, next) => {
   const { avatar } = req.body;
   const { userId } = req.user;
   User.findByIdAndUpdate(userId, { avatar }, { new: true, runValidators: true })
-    .then((updatedAvatar) => {
-      if (updatedAvatar) return res.send({ updatedAvatar });
+    .then((user) => {
+      if (user) return res.send({ user });
       throw new NotFoundError('Запрашиваемый пользователь не найден');
     })
     .catch((err) => {

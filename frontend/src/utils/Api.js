@@ -1,9 +1,8 @@
-import { cohort, token } from "./constants";
+import { baseUrl } from "./constants";
 
 class Api {
-  constructor(cohort, token) {
-    this._cohort = cohort;
-    this._token = token;
+  constructor(baseUrl) {
+    this._baseUrl = baseUrl;
   }
 
   _checkResponse(res) {
@@ -15,20 +14,20 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`https://nomoreparties.co/v1/${this._cohort}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
   }
 
   setUserInfo(forms) {
-    return fetch(`https://nomoreparties.co/v1/${this._cohort}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(forms),
@@ -36,20 +35,20 @@ class Api {
   }
 
   getCards() {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
   }
 
   setCard({ name, link }) {
-    return fetch(`https://mesto.nomoreparties.co/v1/${this._cohort}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -61,11 +60,11 @@ class Api {
 
   deleteCard(_id) {
     return fetch(
-      `https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id} `,
+      `${this._baseUrl}/cards/${_id} `,
       {
         method: "DELETE",
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
         },
       }
@@ -74,11 +73,11 @@ class Api {
 
   setLike(_id) {
     return fetch(
-      `https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id}/likes`,
+      `${this._baseUrl}/cards/${_id}/likes`,
       {
         method: "PUT",
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
         },
       }
@@ -87,11 +86,11 @@ class Api {
 
   deleteLike(_id) {
     return fetch(
-      `https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${_id}/likes`,
+      `${this._baseUrl}/cards/${_id}/likes`,
       {
         method: "DELETE",
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
         },
       }
@@ -100,11 +99,11 @@ class Api {
 
   changeLikeCardStatus(cardId, isLiked) {
     return fetch(
-      `https://mesto.nomoreparties.co/v1/${this._cohort}/cards/${cardId}/likes`,
+      `${this._baseUrl}/cards/${cardId}/likes`,
       {
         method: `${!isLiked ? "DELETE" : "PUT"}`,
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
         },
       }
@@ -113,12 +112,13 @@ class Api {
 
   updateAvatar(data) {
     return fetch(
-      `https://mesto.nomoreparties.co/v1/${this._cohort}/users/me/avatar`,
+      `${this._baseUrl}/users/me/avatar`,
       {
         method: "PATCH",
         headers: {
-          authorization: this._token,
+          Accept: 'application/json',
           "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
         },
 
         body: JSON.stringify(data),
@@ -127,5 +127,5 @@ class Api {
   }
 }
 
-const api = new Api(cohort, token);
+const api = new Api( baseUrl );
 export default api;

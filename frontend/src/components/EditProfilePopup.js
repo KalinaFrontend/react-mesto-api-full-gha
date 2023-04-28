@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import PopupWithForm from "./PopupWithForm";
-import forms from "../utils/forms";
+import Forms from "../utils/forms";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
-  const {values, errors, inactive, handleChange, handleSubmit, resetForm, setValues } = forms(onUpdateUser);
+  const {values, errors, inactive, handleChange, handleSubmit, resetForm, setValues } = Forms(onUpdateUser);
 
   const currentUser = useContext(CurrentUserContext);
 
@@ -13,7 +13,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
     setValues({
       name: currentUser.name,
       about: currentUser.about});
-  }, [currentUser, isOpen]);
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ currentUser, isOpen ]);
 
 
   const closePopup = () => {

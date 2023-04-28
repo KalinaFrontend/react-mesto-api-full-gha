@@ -10,7 +10,7 @@ function InfoTooltip ({isOpen, onClose, isSuccess}) {
 
     const onCloseWindow = () => {
         onClose();
-        navigate("/sign-in");
+        navigate("/signin");
     }
   return (
     <div className={

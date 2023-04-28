@@ -1,14 +1,14 @@
-import forms from "../utils/forms";
+import Forms from "../utils/forms";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 
-function AuthForm({ title, onLogin }) {
-  const { values, errors, handleChange, handleSubmit } = forms(onLogin);
+function AuthForm({ title, button, onLogin }) {
+  const { values, errors, handleChange, handleSubmit } = Forms(onLogin);
   const location = useLocation();
 
   return (
     <div className="login">
-      <h2 className="login__title">Регистрация</h2>
+      <h2 className="login__title">{title}</h2>
       <form
         name="login-form form"
         className="login__form form"
@@ -45,13 +45,13 @@ function AuthForm({ title, onLogin }) {
           {errors.password}
         </span>
         <button type="submit" className="login__save-button">
-          Зарегистрироваться
+          {button}
         </button>
-        {location.pathname === "/sign-in" && (
+        {location.pathname === "/signin" && (
           <Link to="" className="login__auth-link"></Link>
         )}
-        {location.pathname === "/sign-up" && (
-          <Link to="/sign-in" className="login__auth-link">
+        {location.pathname === "/signup" && (
+          <Link to="/signin" className="login__auth-link">
             Уже зарегистрированы? Войти
           </Link>
         )}

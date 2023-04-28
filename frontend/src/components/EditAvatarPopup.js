@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
-import forms from "../utils/forms";
+import Forms from "../utils/forms";
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   const avatarRef = useRef();
-  const {errors, inactive, handleChange, resetForm } = forms(onUpdateAvatar);
+  const {errors, inactive, handleChange, resetForm } = Forms(onUpdateAvatar);
   
   const closePopup = () => {
     onClose();

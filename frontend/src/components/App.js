@@ -34,27 +34,32 @@ function App() {
 
   const navigate = useNavigate();
 
+  const initialCards = async () => {
+    try {
+      const getCards = await api.getCards();
+      setCards(getCards.data);
+    } catch(e) {
+      console.warn(e);
+    }
+  }
+
+  const getUserInfo = async () => {
+    try {
+      const userInfo = await api.getUserInfo();
+      setCurrentUser(userInfo.user);
+    } catch(e) {
+      console.warn(e);
+    }
+  }
+
   useEffect(() => {
-    api
-      .getCards()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`);
-      });
-
-    api
-      .getUserInfo()
-      .then((data) => {
-        setCurrentUser(data);
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`);
-      });
-
+    if (loggedIn) {
+      initialCards();
+      getUserInfo();
+    }
     handleTokenCheck();
-  }, []);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userData]);
 
   const deleteCardPopup = () => {
     setOnDeleteCard(true);
@@ -109,7 +114,7 @@ function App() {
     api
       .setUserInfo(data)
       .then((newUserInfo) => {
-        setCurrentUser(newUserInfo);
+        setCurrentUser(newUserInfo.user);
         closeAllPopups();
       })
       .catch(console.error);
@@ -119,8 +124,8 @@ function App() {
   function handleUpdateAvatar(avatar) {
     api
       .updateAvatar(avatar)
-      .then((newAvatar) => {
-        setCurrentUser(newAvatar);
+      .then(( newUser ) => {
+        setCurrentUser( newUser.user );
         closeAllPopups();
       })
       .catch(console.error);
@@ -131,62 +136,60 @@ function App() {
     api
       .setCard(card)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch(console.error);
   }
 
   //Авторироваться
-  function handleAuthorization(data) {
-    auth
-      .authorization(data)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-          setLoggedIn(true);
-          handleTokenCheck();
-        }
-      })
-      .catch(console.error);
+  const handleAuthorization = async (data) => {
+    try {
+      const { token } = await auth.authorization(data);
+      localStorage.setItem("jwt", token);
+      setLoggedIn(true);
+      handleTokenCheck();
+    } catch(e) {
+      console.warn(e);
+    }
   }
 
   //Зарегистрироваться
-  function handleRegistration(data) {
-    auth
-      .registration(data)
-      .finally(setIsInfoTooltipOpen(true))
-      .then(() => {
+  const handleRegistration = async (data) => {
+    try {
+        await auth.registration(data)
         setIsRegistrationSuccessful(true);
-      })
-      .catch(console.error);
-  }
-
+        setIsInfoTooltipOpen(true);
+    } catch (e) {
+        console.warn(e);
+        setIsInfoTooltipOpen(true);
+    }
+}
   //Проверить токен
-  const handleTokenCheck = () => {
+  const handleTokenCheck = async () => {
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
       return;
     }
-    auth
-      .getContent(jwt)
-      .then((data) => {
-        setUserData(data.data.email);
-        setLoggedIn(true);
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
-  };
+    try {
+      const userInfo = await api.getUserInfo();
+      setUserData(userInfo.user.email);
+      setLoggedIn(true);
+      navigate("/");
+    } catch(e) {
+      console.warn(e);
+    }
+  }
 
   //Получить колличество лайков на карточке
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) =>  i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
-        );
+        setCards((state) => state.map((c) => 
+          c._id === card._id ? newCard.data : c
+        ))
       })
       .catch(console.error);
   }
@@ -204,11 +207,11 @@ function App() {
           <Header userEmail={userData} onExit={handleLoginOut} />
           <Routes>
             <Route
-              path="/sign-in"
+              path="/signin"
               element={<Login onLogin={handleAuthorization} />}
             />
             <Route
-              path="/sign-up"
+              path="/signup"
               element={<Register onLogin={handleRegistration} />}
             />
             <Route

@@ -4,8 +4,9 @@ import AuthForm from "./AuthForm";
 
 function Register({ onLogin }) {
   const title = "Регистрация";
+  const buttonSubmit = "Зарегистрироваться";
   return (
-    <AuthForm title={title} onLogin={onLogin}/>
+    <AuthForm title={title} button={buttonSubmit} onLogin={onLogin}/>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-const forms = (onLogin) => {
+
+const Forms = ( onLogin ) => {
     const [values, setValues] = useState({});
     const [errors, setErrors] = useState({});
     const [inactive, setInactive] = useState(null);
@@ -48,5 +49,5 @@ const forms = (onLogin) => {
       };
 }
 
-export default forms;
+export default Forms;
 

@@ -1,9 +1,9 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
-import forms from "../utils/forms";
+import Forms from "../utils/forms";
 
 function AddPlacePopup({ isOpen, onClose, onUpdateCards }) {
-  const {values, errors, inactive, handleChange, handleSubmit, resetForm } = forms(onUpdateCards);
+  const {values, errors, inactive, handleChange, handleSubmit, resetForm } = Forms(onUpdateCards);
   
   const closePopup = () => {
     onClose();
