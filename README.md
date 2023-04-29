@@ -7,6 +7,6 @@
 
 IP-адрес 84.201.178.30
 
-Frontend http://mesto-react-kalina.nomoredomains.monster
+Frontend https://mesto-react-kalina.nomoredomains.monster
 
-Backend http://api.mesto-react-kalina.nomoredomains.monster
+Backend https://api.mesto-react-kalina.nomoredomains.monster
