@@ -5,7 +5,7 @@
 ## Ссылки на проект
 
 
-IP-адрес 84.201.178.30
+IP 84.201.178.30
 
 Frontend https://mesto-react-kalina.nomoredomains.monster
 
