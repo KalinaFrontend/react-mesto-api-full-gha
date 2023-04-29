@@ -33,7 +33,7 @@ const createUser = (req, res, next) => {
             email,
             password: hashedPassword,
           }))
-          .then((user) => res.status(201).send(user))
+          .then(() => res.status(201).send({ message: 'Пароль успешно создан' }))
           .catch((err) => {
             if (err.name === 'ValidationError') {
               throw new InaccurateDataError('Переданы некорректные данные при регистрации пользователя');
