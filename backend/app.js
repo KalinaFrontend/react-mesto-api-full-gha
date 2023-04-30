@@ -8,7 +8,6 @@ const routes = require('./routes');
 const CentralError = require('./middlewares/errors/centralError');
 const routeSignup = require('./routes/signup');
 const routeSignin = require('./routes/signin');
-require('dotenv').config();
 
 const { PORT = 3000 } = process.env;
 

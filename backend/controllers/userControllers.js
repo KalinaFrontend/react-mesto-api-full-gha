@@ -1,16 +1,14 @@
 const { hash } = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userScheam');
+const { NODE_ENV, JWT_SECRET } = require('../utils/constants');
 
 const {
   ConflictError,
-
   InaccurateDataError,
   NotFoundError,
   UnauthorizedError,
 } = require('../middlewares/errors/index');
-
-const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
   const {
@@ -59,10 +57,11 @@ const login = (req, res, next) => {
     .then(({ _id: userId }) => {
       if (userId) {
         const token = jwt.sign(
-          { _id: userId },
+          { userId },
           NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
           { expiresIn: '7d' },
         );
+
         return res.send({ token });
       }
 
