@@ -27,13 +27,12 @@ const createUser = (req, res, next) => {
       email,
       password: hashedPassword,
     }))
-    .then((user) => res.status(201).send({
-      email: user.email,
-      name: user.name,
-      about: user.about,
-      avatar: user.avatar,
-      _id: user._id,
-    }))
+    .then((newUser) => {
+      // eslint-disable-next-line no-undef
+      const user = newUser.toObject();
+      delete user.password;
+      res.status(201).send({ user });
+    })
     .catch((err) => {
       if (err.code === 11000) {
         next(new ConflictError(
