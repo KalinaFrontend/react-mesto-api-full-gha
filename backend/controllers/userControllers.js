@@ -83,13 +83,7 @@ const getUser = (req, res, next) => {
 
       throw new NotFoundError('Запрашиваемый пользователь не найден');
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new InaccurateDataError('Передан некорректный id'));
-      } else {
-        next(err);
-      }
-    });
+    .catch((err) => next(err));
 };
 
 const getUserId = (req, res, next) => {

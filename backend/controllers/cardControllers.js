@@ -8,6 +8,8 @@ const {
 
 const getCards = (req, res, next) => {
   Card.find({})
+    .populate('owner')
+    .populate('likes')
     .then((cards) => {
       res.status(200).send({ data: cards });
     })
@@ -18,7 +20,9 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   const { userId } = req.user;
   Card.create({ name, link, owner: userId })
-    .then((newCard) => res.status(201).send({ data: newCard }))
+    .then((newCard) => {
+      newCard.populate('owner').then(() => res.status(201).send(newCard));
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new InaccurateDataError('Переданы некорректные данные при создании карточки'));
@@ -62,10 +66,12 @@ const putCardLike = (req, res, next) => {
     { $addToSet: { likes: req.user.userId } },
     { new: true },
   )
+    .populate('owner')
+    .populate('likes')
     .then((cards) => {
       if (!cards) {
         throw new NotFoundError('Запрашиваемая карточка не найдена');
-      } return res.send({ data: cards });
+      } return res.status(201).send(cards);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -82,11 +88,12 @@ const deleteCardLike = (req, res, next) => {
     { $pull: { likes: req.user.userId } },
     { new: true },
   )
+    .populate('owner')
     .populate('likes')
     .then((cards) => {
       if (!cards) {
         throw new NotFoundError('Запрашиваемая карточка не найдена');
-      } return res.send({ data: cards });
+      } return res.send(cards);
     })
     .catch((err) => {
       if (err.name === 'CastError') {

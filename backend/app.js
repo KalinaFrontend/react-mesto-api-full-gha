@@ -3,11 +3,8 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const auth = require('./middlewares/auth');
 const routes = require('./routes');
 const CentralError = require('./middlewares/errors/centralError');
-const routeSignup = require('./routes/signup');
-const routeSignin = require('./routes/signin');
 
 const { PORT = 3000 } = process.env;
 
@@ -28,11 +25,6 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-
-app.use('/', routeSignup);
-app.use('/', routeSignin);
-
-app.use(auth);
 
 app.use(routes);
 

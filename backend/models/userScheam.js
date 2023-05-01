@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const { compare } = require('bcryptjs');
 const validator = require('validator');
+const {
+  UnauthorizedError,
+} = require('../middlewares/errors/index');
 
 const userSchema = new mongoose.Schema(
   {
@@ -57,15 +60,15 @@ const userSchema = new mongoose.Schema(
                 .then((matched) => {
                   if (matched) return user;
 
-                  return Promise.reject();
+                  return Promise.reject(new UnauthorizedError('Неверная почта или пароль'));
                 });
             }
 
-            return Promise.reject();
+            return Promise.reject(new UnauthorizedError('Неверная почта или пароль'));
           });
       },
     },
   },
 );
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);

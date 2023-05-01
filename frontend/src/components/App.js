@@ -136,7 +136,7 @@ function App() {
     api
       .setCard(card)
       .then((newCard) => {
-        setCards([newCard.data, ...cards]);
+        setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch(console.error);
@@ -183,12 +183,12 @@ function App() {
 
   //Получить колличество лайков на карточке
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) =>  i === currentUser._id);
+    const isLiked = card.likes.some((i) =>  i._id  === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => 
-          c._id === card._id ? newCard.data : c
+          c._id === card._id ? newCard : c
         ))
       })
       .catch(console.error);
