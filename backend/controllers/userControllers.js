@@ -19,35 +19,32 @@ const createUser = (req, res, next) => {
     password,
   } = req.body;
 
-  User.findOne({ email })
-    .then((mail) => {
-      if (mail) {
-        throw new ConflictError('Пользователь с таким электронным адресом уже зарегистрирован');
+  hash(password, 10)
+    .then((hashedPassword) => User.create({
+      name,
+      about,
+      avatar,
+      email,
+      password: hashedPassword,
+    }))
+    .then((user) => res.status(201).send({
+      email: user.email,
+      name: user.name,
+      about: user.about,
+      avatar: user.avatar,
+      _id: user._id,
+    }))
+    .catch((err) => {
+      if (err.code === 11000) {
+        next(new ConflictError(
+          'Пользователь с таким электронным адресом уже зарегистрирован',
+        ));
+      } else if (err.name === 'ValidationError') {
+        next(new InaccurateDataError('Переданы некорректные данные при создании пользователя'));
       } else {
-        hash(password, 10)
-          .then((hashedPassword) => User.create({
-            name,
-            about,
-            avatar,
-            email,
-            password: hashedPassword,
-          }))
-          .then((user) => res.status(201).send({
-            email: user.email,
-            name: user.name,
-            about: user.about,
-            avatar: user.avatar,
-            _id: user._id,
-          }))
-          .catch((err) => {
-            if (err.name === 'ValidationError') {
-              throw new InaccurateDataError('Переданы некорректные данные при регистрации пользователя');
-            }
-          })
-          .catch(next);
+        next(err);
       }
-    })
-    .catch(next);
+    });
 };
 
 const login = (req, res, next) => {
