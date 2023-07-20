@@ -128,7 +128,6 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 ## Использование
 В приложении вы можете:
 <br>
-
 * Редактировать информацию о себе и изменять свой аватар
 <br>
 <a href="https://mesto-react-kalina.nomoredomains.monster">
