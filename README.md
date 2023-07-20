@@ -127,11 +127,8 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 <!-- USAGE EXAMPLES -->
 ## Использование
 В приложении вы можете:
-<br>
 * Редактировать информацию о себе и изменять свой аватар
-<a href="https://mesto-react-kalina.nomoredomains.monster">
- <img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8" width="550" alt="#">
-</a>
+<a href="https://mesto-react-kalina.nomoredomains.monster"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8" width="550" alt="#"></a>
 <br>
 * Добавлять фото карточки с подписями, для этого необходимо придумать подпись и вставить ссылку на изображение
 <br>
