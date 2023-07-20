@@ -24,9 +24,7 @@
     </li>
     <li><a href="#установка">Установка</a></li>
     <li><a href="#использование">Использование</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#контакты">Контакты</a></li>
-    <li><a href="#планы-по-доработке">Планы по доработке</a></li>
   </ol>
 </details>
 
