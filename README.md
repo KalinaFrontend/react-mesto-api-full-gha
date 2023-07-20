@@ -57,8 +57,7 @@ Frontend Frontend https://mesto-react-kalina.nomoredomains.monster
 
 Backend https://api.mesto-react-kalina.nomoredomains.monster
 
-<a href="https://mesto-react-kalina.nomoredomains.monster">  ![Mesto React - Opera 2023-07-20 20-34-36](https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/af2e493b-b7e4-4fcc-9cf9-6fb34ca35887)
-   </a>
+![Mesto React - Opera 2023-07-20 20-34-36](https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/af2e493b-b7e4-4fcc-9cf9-6fb34ca35887)
 
 
 
