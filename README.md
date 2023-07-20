@@ -131,7 +131,6 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 
 * Редактировать информацию о себе и изменять свой аватар
 <br>
-
 <a href="https://mesto-react-kalina.nomoredomains.monster">
  <img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8" width="550" alt="#">
 </a>
@@ -153,7 +152,7 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 <br>
 
 * Удалять карточки нажав корзину и далее подтвердив действие
-
+<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/e6ddaeca-e2eb-415d-986d-2b14e35fa51c" width="550" alt="#"></a>
 
 <p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
