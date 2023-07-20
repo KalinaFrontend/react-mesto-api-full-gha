@@ -128,26 +128,14 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 ## Использование
 В приложении вы можете:
 * Редактировать информацию о себе и изменять свой аватар
-<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8" width="550" alt="#"></a>
-<br>
 * Добавлять фото карточки с подписями, для этого необходимо придумать подпись и вставить ссылку на изображение
-<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/a120ef98-584e-497b-80f0-9b9b3e82bfcf" width="550" alt="#"></a>
-<br>
-
 * Оставлять реакцию на свои и чужие фотокарточки
-<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/9f716001-27cc-4e0c-bdaa-908c9e482491" width="550" alt="#"></a>
-<br>
-
 * Открывать изображения из фотокарточек в полном разрешении изображения
-<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/d74effd7-866f-4003-a654-6c71e4dc4549" width="550" alt="#"></a>
-<br>
-
 * Удалять карточки нажав корзину и далее подтвердив действие
-<br>
 <a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/e6ddaeca-e2eb-415d-986d-2b14e35fa51c" width="550" alt="#"></a>
 
 <p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
