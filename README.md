@@ -146,8 +146,9 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 
 * Редактировать информацию о себе и изменять свой аватар
 <br>
-<a href="https://grams.nomoredomains.monster/"> 
-![2023-07-20_20-58-23](https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/4310dfe5-32d0-430d-a03c-69e71064e445) 
+<a href="https://mesto-react-kalina.nomoredomains.monster"> 
+![2023-07-20_20-58-23](https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8)
+
 </a>
 <br>
 
