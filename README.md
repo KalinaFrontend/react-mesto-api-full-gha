@@ -146,6 +146,7 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 
 * Редактировать информацию о себе и изменять свой аватар
 <br>
+
 <a href="https://mesto-react-kalina.nomoredomains.monster">
  <img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/7994750e-0954-4135-8cfb-248fa3ab19c8" width="550" alt="#">
 </a>
@@ -154,67 +155,41 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 * Добавлять фото карточки с подписями, для этого необходимо придумать подпись и вставить ссылку на изображение
 <br>
 
-<a href="https://grams.nomoredomains.monster/">![start-page-img](./frontend/src/images/readme-img-add-card.png)</a>
+<a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/a120ef98-584e-497b-80f0-9b9b3e82bfcf" width="550" alt="#"></a>
 <br>
 
 * Оставлять реакцию на свои и чужие фотокарточки
 <br>
 
-<a href="https://grams.nomoredomains.monster/">![start-page-img](./frontend/src/images/readme-img-like-card.png)</a>
+<a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/9f716001-27cc-4e0c-bdaa-908c9e482491" width="550" alt="#"></a>
 <br>
 
 * Открывать изображения из фотокарточек в полном разрешении изображения
 <br>
 
-<a href="https://grams.nomoredomains.monster/">![start-page-img](./frontend/src/images/readme-img-popup.png)</a>
+<a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/d74effd7-866f-4003-a654-6c71e4dc4549" width="550" alt="#"></a>
 <br>
 
 * Удалять карточки нажав корзину и далее подтвердив действие
 <br>
 
-<a href="https://grams.nomoredomains.monster/">![start-page-img](./frontend/src/images/readme-img-delet-card.png)</a>
+<a href="https://mesto-react-kalina.nomoredomains.monster/"><img src="https://github.com/KalinaFrontend/react-mesto-api-full-gha/assets/111464624/e6ddaeca-e2eb-415d-986d-2b14e35fa51c" width="550" alt="#"></a>
 
 <p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
-
-
-
-<!-- Plans for completion -->
-## Планы по доработке
-
-* добавление периодического автоматического обновления галереи карточек
-* добавление функции сабмита форм нажатием на клавишу "Enter" (в настоящий момент работает только в случае клика пользователем по полю формы)
-
-<p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Если у вас есть предложение, которое сделало бы это проект лучше, пожалуйста, разветвите репозиторий и создайте запрос на извлечение. Вы также можете просто открыть проблему с тегом "улучшение". Спасибо за ваш вклад!
-
-1. Скопируйте себе проект.
-2. Создайте свою ветку удивительной функциональности (`git checkout -b feature/AmazingFeature`)
-3. Зафиксируйте свои изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Толкните свою ветку (`git push origin feature/AmazingFeature`)
-5. Откройте запрос на извлечение
-
-<p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
-
 
 
 <!-- CONTACT -->
 ## Контакты
 
 Александр Грамс (разработчик):
- - Телеграм - [@Monteg_451](https://t.me/Monteg_451)
- - Email - Alexander.Grams@yandex.ru
+ - Телеграм - [@dzhiltcov](https://t.me/dzhiltcov)
+ - Email - dzhiltcov@yandex.ru
 
->Ссылка на проект: [https://github.com/AlexanderGrams/react-mesto-api-full-gha](https://github.com/AlexanderGrams/react-mesto-api-full-gha)
+>Ссылка на проект: [https://github.com/KalinaFrontend/react-mesto-api-full-gha](https://github.com/KalinaFrontend/react-mesto-api-full-gha)
 
->Ссылка на хостинг Front-end: [https://grams.nomoredomains.monster](https://grams.nomoredomains.monster)
+>Ссылка на хостинг Front-end: [https://mesto-react-kalina.nomoredomains.monster](https://mesto-react-kalina.nomoredomains.monster)
 
->Ссылка на хостинг Back-end: [https://api.grams.nomoredomains.monster/users](https://api.grams.nomoredomains.monster/users)
+>Ссылка на хостинг Back-end: [https://api.mesto-react-kalina.nomoredomains.monster](https://api.mesto-react-kalina.nomoredomains.monster)
 
 <p align="right">(<a href="#readme-top">вернуться на верх</a>)</p>
 
