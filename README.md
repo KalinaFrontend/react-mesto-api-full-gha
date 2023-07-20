@@ -16,7 +16,6 @@ Backend https://api.mesto-react-kalina.nomoredomains.monster
 <a name="readme-top"></a>
 
 
-<br />
 <div align="end">
   <h3 align="start">Проект: "Место"</h3>
   <p align="start">
